@@ -1,0 +1,111 @@
+---
+---
+
+<section id="features" class="features">
+  <div class="container">
+    <div class="features-header">
+      <h2>AUTOMATIONS AS A SERVICE</h2>
+      <p class="subhead">Get custom automations to power bizOps</p>
+    </div>
+    
+    <div class="features-grid">
+      <div class="feature">
+        <div class="number">1</div>
+        <h3>Custom Automations</h3>
+        <p>We build custom automations and apps to power bizOps, integrate your marketing and operations stack, and help you get out from under legacy systems and software debt.</p>
+      </div>
+
+      <div class="feature">
+        <div class="number">2</div>
+        <h3>Custom AI Agents</h3>
+        <p>From voice agents to video processing, copy and code optimization, we'll implement custom AI agents that can tirelessly tackle tough challenges 24/7.</p>
+      </div>
+
+      <div class="feature">
+        <div class="number">3</div>
+        <h3>Augmented, Asynced</h3>
+        <p>We work fast and work asynronously alongside your team to rapidly build solutions designed to augment your core processes, systems, and business assets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .features {
+    padding: 6rem 0;
+    background: radial-gradient(circle at center, rgba(var(--primary), 0.1), transparent 70%);
+  }
+
+  .features-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 0 1rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgb(var(--secondary));
+    margin-bottom: 1rem;
+  }
+
+  .subhead {
+    font-size: clamp(1.75rem, 4vw, 3.5rem);
+    font-weight: 700;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.2;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    margin-top: 2rem;
+    padding: 0 1rem;
+  }
+
+  .feature {
+    position: relative;
+    padding: 2rem;
+  }
+
+  .number {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    margin-bottom: 1rem;
+    color: rgb(var(--text));
+  }
+
+  p {
+    color: rgba(var(--text), 0.8);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .features {
+      padding: 4rem 0;
+    }
+
+    .features-grid {
+      gap: 2rem;
+    }
+
+    .feature {
+      padding: 1.5rem;
+    }
+  }
+</style>

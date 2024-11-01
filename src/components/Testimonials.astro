@@ -1,0 +1,94 @@
+---
+const testimonials = [
+  {
+    name: "Travis Piepho",
+    role: "President, Prospectrs",
+    content: "Sam is a funnel and content wizard. In working with Sam, he has directly generated over 2000 interested parties to my business with value of over $200k in revenue all from work in and around funnels, ads, and creative writing.",
+    image: "https://www.chillreptile.com/wp-content/uploads/2020/01/travis-e1594753310441.jpeg"
+  },
+  {
+    name: "Graham Zeller",
+    role: "Partner, Parralax Post",
+    content: "We have a lot of processes we are working manually, and time is of the essence on big-budget film productions. Augmentis worked with us to build AI automations that reduced time, capital, and human error in our production systems",
+    image: "https://www.imdb.com/name/nm9146582/mediaviewer/rm3145211393/?ref_=nm_ov_ph"
+  },
+  {
+    name: "Emma Williams",
+    role: "Founder, DataFlow",
+    content: "Outstanding service and technical expertise. They delivered beyond our expectations.",
+    image: "https://i.pravatar.cc/150?img=3"
+  }
+];
+---
+
+<section id="testimonials" class="testimonials">
+  <div class="container">
+    <h2>What Our <span class="gradient-text">Clients Say</span></h2>
+    <div class="testimonials-grid">
+      {testimonials.map(testimonial => (
+        <div class="card testimonial-card">
+          <img src={testimonial.image} alt={testimonial.name} />
+          <div class="content">
+            <p>"{testimonial.content}"</p>
+            <div class="author">
+              <h4>{testimonial.name}</h4>
+              <span>{testimonial.role}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials {
+    padding: 6rem 0;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 3rem;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .testimonial-card {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    border: 3px solid transparent;
+    background: var(--primary-gradient);
+    background-clip: padding-box;
+  }
+
+  .content p {
+    color: rgba(var(--text), 0.9);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .author h4 {
+    color: rgb(var(--text));
+    margin-bottom: 0.25rem;
+  }
+
+  .author span {
+    color: rgba(var(--text), 0.6);
+    font-size: 0.9rem;
+  }
+</style>

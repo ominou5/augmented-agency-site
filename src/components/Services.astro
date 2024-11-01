@@ -1,0 +1,112 @@
+---
+const services = [
+  {
+    title: "Custom Integrated Automations",
+    description: "Build powerful automated workflows that connect your favorite apps and services.",
+    icon: "🔄"
+  },
+  {
+    title: "Custom AI Agents",
+    description: "We'll build an army of AI agents to optimize your business processes.",
+    icon: "🤖"
+  },
+  {
+    title: "Custom Development",
+    description: "Tailored solutions designed specifically for your unique business needs.",
+    icon: "💻"
+  },
+  {
+    title: "Scale Your Funnels With AI",
+    description: "Enhance your marketing funnels with AI-driven insights and automation.",
+    icon: "📈"
+  }
+];
+---
+
+<section id="services" class="services">
+  <div class="container">
+    <h2>Our <span class="gradient-text">Services</span></h2>
+    <div class="services-grid">
+      {services.map(service => (
+        <div class="card service-card">
+          <div class="icon">{service.icon}</div>
+          <h3>{service.title}</h3>
+          <p>{service.description}</p>
+        </div>
+      ))}
+    </div>
+    <div class="cta-container">
+      <p class="cta-text">Ready to automate your business processes?</p>
+      <a href="https://calendly.com/samrexford" target="_blank" rel="noopener noreferrer" class="btn">Book an Intro Call</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    padding: 6rem 0;
+    background: radial-gradient(circle at bottom left, rgba(var(--secondary), 0.1), transparent 50%);
+  }
+
+  h2 {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 3rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto 4rem;
+  }
+
+  .service-card {
+    padding: 2.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+
+  .icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h3 {
+    margin-bottom: 1rem;
+    color: rgb(var(--text));
+    font-size: 1.5rem;
+  }
+
+  p {
+    color: rgba(var(--text), 0.8);
+    line-height: 1.6;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .cta-container {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .cta-text {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    color: rgb(var(--text));
+  }
+
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .service-card {
+      padding: 2rem;
+    }
+  }
+</style>

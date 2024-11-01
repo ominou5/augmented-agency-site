@@ -1,0 +1,273 @@
+---
+const plans = [
+  {
+    name: "Starter",
+    price: "3,900",
+    description: "Perfect for small businesses starting with automation",
+    features: [
+      "2 automation workflows",
+      "Weekly strategy calls",
+      "Basic AI integration",
+      "Email support",
+      "Cancel anytime"
+    ]
+  },
+  {
+    name: "Growth",
+    price: "6,900",
+    description: "Ideal for growing businesses needing comprehensive automation",
+    features: [
+      "Unlimited automation workflows",
+      "Priority implementation",
+      "Advanced AI solutions",
+      "Dedicated support",
+      "Custom integrations"
+    ],
+    popular: true
+  },
+  {
+    name: "Enterprise",
+    price: "Custom",
+    description: "Tailored solutions for large-scale operations",
+    features: [
+      "Custom automation architecture",
+      "Enterprise AI solutions",
+      "24/7 priority support",
+      "Dedicated success manager",
+      "Custom SLA"
+    ]
+  }
+];
+---
+
+<section id="pricing" class="pricing">
+  <div class="container">
+    <div class="pricing-header">
+      <h2>Simple, Transparent <span class="gradient-text">Pricing</span></h2>
+      <p>Choose the plan that best fits your business needs</p>
+    </div>
+
+    <div class="pricing-grid">
+      {plans.map(plan => (
+        <div class={`pricing-card ${plan.popular ? 'popular' : ''}`}>
+          {plan.popular && <div class="popular-badge">Most Popular</div>}
+          <div class="plan-header">
+            <h3>{plan.name}</h3>
+            <div class="price">
+              {plan.price !== "Custom" && <span class="currency">$</span>}
+              {plan.price}
+              {plan.price !== "Custom" && <span class="period">/month</span>}
+            </div>
+            <p class="description">{plan.description}</p>
+          </div>
+          <ul class="features">
+            {plan.features.map(feature => (
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+          <a href="https://calendly.com/samrexford" target="_blank" rel="noopener noreferrer" class={`btn ${plan.popular ? '' : 'btn-secondary'}`}>
+            Book an Intro Call
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .pricing {
+    padding: 8rem 0;
+    background: radial-gradient(circle at center, rgba(var(--primary), 0.1), transparent 70%);
+  }
+
+  .pricing-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .pricing-header h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1rem;
+  }
+
+  .pricing-header p {
+    color: rgba(var(--text), 0.8);
+    font-size: 1.2rem;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .pricing-card {
+    background: rgba(var(--card-bg), 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(var(--primary), 0.1);
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    position: relative;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .pricing-card.popular {
+    border: 2px solid rgb(var(--primary));
+    transform: scale(1.05);
+  }
+
+  .pricing-card.popular:hover {
+    transform: scale(1.05) translateY(-5px);
+  }
+
+  .popular-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-gradient);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .plan-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .plan-header h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: rgb(var(--text));
+  }
+
+  .price {
+    font-size: 3rem;
+    font-weight: 700;
+    color: rgb(var(--text));
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+  }
+
+  .currency {
+    font-size: 2rem;
+    align-self: flex-start;
+  }
+
+  .period {
+    font-size: 1rem;
+    color: rgba(var(--text), 0.6);
+    align-self: flex-end;
+  }
+
+  .description {
+    color: rgba(var(--text), 0.8);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .features {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+    flex-grow: 1;
+  }
+
+  .features li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: rgba(var(--text), 0.9);
+    margin-bottom: 1rem;
+  }
+
+  .features li svg {
+    flex-shrink: 0;
+    stroke: rgb(var(--primary));
+  }
+
+  .btn-secondary {
+    background: transparent;
+    border: 1px solid rgba(var(--primary), 0.5);
+    color: rgb(var(--text));
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  .btn-secondary:hover {
+    border-color: rgba(var(--primary), 1);
+    background: rgba(var(--primary), 0.1);
+  }
+
+  @media (max-width: 1024px) {
+    .pricing-grid {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .pricing-card.popular {
+      transform: none;
+    }
+
+    .pricing-card.popular:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .pricing {
+      padding: 4rem 0;
+    }
+
+    .pricing-card {
+      padding: 2rem;
+    }
+
+    .price {
+      font-size: 2.5rem;
+    }
+
+    .currency {
+      font-size: 1.75rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .pricing-header h2 {
+      font-size: 1.75rem;
+    }
+
+    .pricing-header p {
+      font-size: 1rem;
+    }
+
+    .pricing-card {
+      padding: 1.5rem;
+    }
+  }
+</style>

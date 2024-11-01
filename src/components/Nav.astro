@@ -1,0 +1,184 @@
+---
+---
+
+<nav class="floating-nav">
+  <div class="container">
+    <div class="nav-content">
+      <a href="#hero" class="logo">λugmentis</a>
+      <ul>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+      </ul>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .floating-nav {
+    position: fixed;
+    top: 1rem;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 0 1rem;
+  }
+
+  .nav-content {
+    background: rgba(var(--card-bg), 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(var(--primary), 0.1);
+    border-radius: 3rem;
+    padding: 0.75rem;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .logo:hover {
+    opacity: 0.8;
+  }
+
+  ul {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  a:not(.logo) {
+    color: rgb(var(--text));
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 1.5rem;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    display: block;
+  }
+
+  a:not(.logo):hover {
+    color: rgb(var(--primary));
+    background: rgba(var(--primary), 0.1);
+  }
+
+  .mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.75rem;
+  }
+
+  .mobile-menu-btn span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: rgb(var(--text));
+    margin: 5px 0;
+    transition: 0.3s;
+  }
+
+  @media (max-width: 768px) {
+    .nav-content {
+      border-radius: 1.5rem;
+      padding: 0.75rem;
+    }
+
+    .logo {
+      padding: 0.75rem 1rem;
+    }
+
+    ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(var(--card-bg), 0.95);
+      backdrop-filter: blur(12px);
+      margin-top: 0.5rem;
+      padding: 0.75rem;
+      border-radius: 1rem;
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+
+    ul.active {
+      display: flex;
+    }
+
+    a:not(.logo) {
+      padding: 0.75rem;
+    }
+
+    .mobile-menu-btn {
+      display: block;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .floating-nav {
+      top: 0.5rem;
+    }
+
+    .nav-content {
+      padding: 0.75rem;
+    }
+
+    .logo {
+      font-size: 1.1rem;
+      padding: 0.75rem 1rem;
+    }
+  }
+</style>
+
+<script>
+  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+  const nav = document.querySelector('ul');
+
+  mobileMenuBtn?.addEventListener('click', () => {
+    nav?.classList.toggle('active');
+    mobileMenuBtn.classList.toggle('active');
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-content') && nav?.classList.contains('active')) {
+      nav.classList.remove('active');
+      mobileMenuBtn?.classList.remove('active');
+    }
+  });
+
+  // Close menu when clicking a link
+  nav?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('active');
+      mobileMenuBtn?.classList.remove('active');
+    });
+  });
+</script>
